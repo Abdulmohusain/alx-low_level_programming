@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "main.h"
-#include <ctype.h> 
+#include <ctype.h>
 /**
  * main - program that multiplies two numbers.
  * @argc: Argument count.
@@ -15,20 +15,17 @@ int main(int argc __attribute__((unused)), char **argv)
 
 	if (argc == 1)
 		printf("0\n");
-
-        while (argc && argc != 1)
+	while (argc && argc != 1)
 	{
-		if (!isdigit(*argv[counter]))
-        	{
-                	printf("Error\n");
-                	return (1);
-	        }
-
+		if (!isdigit(*argv[counter])
+		{
+			printf("Error\n");
+			return (1);
+		}
 		sum += atoi(argv[counter]);
 		counter++;
 		argc--;
 	}
 	printf("%d\n", sum);
-        exit(EXIT_SUCCESS);
+	exit(EXIT_SUCCESS);
 }
-
