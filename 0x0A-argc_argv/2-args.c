@@ -8,7 +8,10 @@
  */
 int main(int argc, char **argv)
 {
-	while (argc--)
+	while (argc)
+	{
 		printf("%s\n", *argv++);
+		argc--;
+	}
 	exit(EXIT_SUCCESS);
 }
