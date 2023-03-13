@@ -17,7 +17,7 @@ int main(int argc __attribute__((unused)), char **argv)
 		printf("0\n");
 	while (argc && argc != 1)
 	{
-		if (!isdigit(*argv[counter])
+		if (!isdigit(*argv[counter]))
 		{
 			printf("Error\n");
 			return (1);
