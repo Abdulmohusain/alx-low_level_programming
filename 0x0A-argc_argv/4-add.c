@@ -27,5 +27,5 @@ int main(int argc __attribute__((unused)), char **argv)
 		argc--;
 	}
 	printf("%d\n", sum);
-	exit(EXIT_SUCCESS);
+	return (0);
 }
