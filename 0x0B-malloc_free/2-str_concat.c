@@ -14,6 +14,10 @@ char *str_concat(char *s1, char *s2)
 	unsigned int i = 0;
 	char *str;
 
+	if (s1 == NULL)
+		s1[0] = '\0';		
+	if (s2 == NULL)
+		s2 = '\0';
 	while (s1[lens1])
 		lens1++;
 	while (s2[lens2])
