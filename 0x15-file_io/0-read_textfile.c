@@ -9,5 +9,23 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
+	ssize_t filedes, rfile, wfile;
+	char *buff = malloc(sizeof(char) * letters);
+
+	filedes = open(filename, O_RDONLY);
+
+	if (buff == NULL)
+		return (0);
+	if (filedes == -1)
+		return (0);
+	rfile = read(filedes, buff, letters);
+	if (rfile == -1)
+		return (0);
+	wfile = write(STDOUT_FILENO, buff, rfile);
+	free(buff);
+	if (wfile == -1)
+		return (0);
+	close(filedes);
+	return (wfile);
 
 }
