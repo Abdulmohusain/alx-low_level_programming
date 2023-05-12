@@ -13,7 +13,7 @@ int create_file(const char *filename, char *text_content)
 
 	while(text_content[g] != '\0')
 		g++;
-	newFile = open(filename, O_RDWR | O_CREAT | O_TRUNC);
+	newFile = open(filename, O_RDWR | O_CREAT | O_TRUNC, "rw-------");
 
 	writeFile = (newFile);
 	if (writeFile == -1)
