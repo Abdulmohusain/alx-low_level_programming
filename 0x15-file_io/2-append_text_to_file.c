@@ -13,7 +13,7 @@ int append_text_to_file(const char *filename, char *text_content)
 	if (filename == NULL)
 		return (-1);
 
-	openfl = open(filename, O_WRONLY | O_APPEND | O_EXCL);
+	openfl = open(filename, O_WRONLY | O_APPEND);
 	printf("%d\n", openfl);
 
 	if (openfl == -1)
