@@ -16,13 +16,13 @@ int create_file(const char *filename, char *text_content)
 	if (newFile == -1)
 		return (-1);
 
-	while (text_content[g] != '\0')
-		g++;
 	if (text_content == NULL)
 	{
 		close(newFile);
 		return (1);
 	}
+	while (text_content[g] != '\0')
+		g++;
 
 	writeFile = write(newFile, text_content, g);
 	if (writeFile == -1)
