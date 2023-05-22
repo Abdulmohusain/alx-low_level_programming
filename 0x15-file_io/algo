@@ -1,0 +1,8 @@
+Check if number of argument is 3. If not print(***\n), exit(97).
+Open first file. if file_to already exist truncate it. Bullet point 4.
+Open/create second file with permission rw-rw-r--. Bullet point 5.
+for loop until all char read from first file;
+	Read 1024b file and save it in a buffer
+	write buffer to second file. Bullet point 5
+close first file. Bullet point 6
+close second file. Bullet point 6
