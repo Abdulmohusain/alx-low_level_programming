@@ -9,44 +9,16 @@
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned long int *list_n = conv_bin_into_arr(n);
-	unsigned long int *list_m = conv_bin_into_arr(m);
-	unsigned long int i = 0;
+	unsigned long int i, a;
+	unsigned int bit = 0;
 
-	while (i < 33)
-	{
-		printf("list_n[%ld] = %ld\n", i,*list_n[i]);
-		i++;
-	}
 	i = 0;
-	while (i < 33)
+	a = 1;
+	for (i = 0; i <= 32; i++)
 	{
-		printf("list_m[%ld] = %ld\n", i,*list_m[i]);
-		i++;
+		if ((m & a) != (n & a))
+			bit++;
+		a <<= 1;
 	}
-}
-/**
- * conv_bin_into_arr - A Recussion function.
- * @n: The number
- * @a: The complementary bit
- * @m: The control
- */
-unsigned long int *conv_bin_into_arr(unsigned long int n)
-{
-	unsigned long int m, x;
-	unsigned long int *a[] = malloc(sizeof(unsigned long int) * 32);
-
-	m = 1;
-	x = 32;
-	while (x > -1)
-	{
-		if ((n & m) == m)
-			a[x] = m;
-		if ((n & m) == 0)
-			a[x] = 0;
-		printf
-		m <<= 1;
-		x--;
-	}
-	return (a);
+	return (bit);
 }
