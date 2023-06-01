@@ -9,19 +9,13 @@
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
+	unsigned long int a = 1;
+	unsigned long int bit;
 
-}
-
-/**
- * conv_bin - A function that converts an int to binary and prints it.
- * @i: The integer.
- */
-void conv_bin(unsigned int i)
-{
-        char b;
-        : (i == 0)
-                return;
-        conv_bin(i / 2);
-        b = ((i % 2) + '0');
-
+	a = a << index;
+	if ((n & a) == a)
+		bit = 1;
+	else
+		bit = 0;
+	return (bit);
 }
