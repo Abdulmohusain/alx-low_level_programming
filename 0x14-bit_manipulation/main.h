@@ -1,7 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 #include <stddef.h>
-
+void conv_bin(unsigned long int n, unsigned long int a, unsigned long int m);
 unsigned int binary_to_uint(const char *b);
 void print_binary(unsigned long int n);
 int get_bit(unsigned long int n, unsigned int index);
