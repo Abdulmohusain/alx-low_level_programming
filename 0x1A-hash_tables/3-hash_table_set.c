@@ -13,7 +13,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (ht == NULL)
 		return (0);
-	if (key == NULL || value == NULL)
+	if (key == NULL)
 		return (0);
 	index = hash_djb2((const unsigned char *)key) % ht->size;
 	if (ht->array[index] == NULL)
