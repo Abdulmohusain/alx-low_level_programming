@@ -14,7 +14,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 
 	index = hash_djb2((const unsigned char *)key) % ht->size;
 	list = ht->array[index];
-	if (list == NULL)
+	if (list == NULL || ht == NULL)
 		return (NULL);
 	while (list)
 	{
