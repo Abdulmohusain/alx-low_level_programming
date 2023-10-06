@@ -9,7 +9,7 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	hash_node_t *new_item;
+	hash_node_t *new_item, *list;
 
 	if (ht == NULL || key == NULL || value == NULL)
 		return (0);
@@ -28,6 +28,20 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	}
 	else
 	{
+		list = ht->array[index];
+		/* checks if key already exists in the list */
+		while (list)
+		{
+			if (strcmp(list->key, key) == 0)
+			{
+				strcpy(list->value, value);
+				free(new_item->key);
+				free(new_item->value);
+				free(new_item);
+				return (1);
+			}
+			list = list->next;
+		}
 		new_item->next = ht->array[index];
 		ht->array[index] = new_item;
 	}
