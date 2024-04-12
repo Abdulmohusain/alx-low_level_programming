@@ -9,11 +9,11 @@
  */
 int binary_search(int *array, size_t size, int value)
 {
-	size_t top = size - 1, bottom = 0, midpoint, a;
+	size_t top = size - 1, bottom = 0, midpoint;
 
 	if (array == NULL)
 		return (-1);
-	for (a = 0; a < (size / 3) + 1; a++)
+	while(bottom <= top)
 	{
 		printf("Searching in array: ");
 		print_array(array, bottom, top);
