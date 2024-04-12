@@ -13,9 +13,9 @@ int binary_search(int *array, size_t size, int value)
 
 	if (array == NULL)
 		return (-1);
+	print_array(array, bottom, top);
 	for (a = 0; a < (size / 3) + 1; a++)
 	{
-		print_array(array, bottom, top);
 		midpoint = (top + bottom) / 2;
 		if (value > array[midpoint])
 		{
@@ -23,12 +23,17 @@ int binary_search(int *array, size_t size, int value)
 		} else if (value < array[midpoint])
 		{
 			top = midpoint - 1;
-		} else
+		}
+		print_array(array, bottom, top);
+		if (bottom == top)
 		{
-			if (top - bottom == 1)
+			return (top);
+		} else if (top - bottom == 1)
+		{
+			if (value == array[top])
+				bottom = top;
+			if (value == array[bottom])
 				top = bottom;
-			print_array(array, bottom, top);
-			return (midpoint);
 		}
 	}
 	return (-1);
