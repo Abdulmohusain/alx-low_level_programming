@@ -23,6 +23,14 @@ int binary_search(int *array, size_t size, int value)
 		} else if (value < array[midpoint])
 		{
 			top = midpoint - 1;
+		} else
+		{
+			if (top - bottom > 1)
+			{
+				print_array(array, bottom, top);
+				return (midpoint);
+
+			}
 		}
 		print_array(array, bottom, top);
 		if (bottom == top)
