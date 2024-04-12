@@ -9,13 +9,47 @@
  */
 int binary_search(int *array, size_t size, int value)
 {
-	size_t top = size, bottom = 0, midpoint;
+	size_t top = size - 1, bottom = 0, midpoint, a;
 
 	if (array == NULL)
 		return (-1);
-	midpoint = (top + bottom) / 2;
-	if (midpoint > value)
+	for (a = 0; a < (size / 3) + 1; a++)
 	{
-		bottom = midpoint
+		print_array(array, bottom, top);
+		midpoint = (top + bottom) / 2;
+		if (value > array[midpoint])
+		{
+			bottom = midpoint + 1;
+		} else if (value < array[midpoint])
+		{
+			top = midpoint - 1;
+		} else
+		{
+			if (top - bottom == 1)
+				top = bottom;
+			print_array(array, bottom, top);
+			return (midpoint);
+		}
+	}
+	return (-1);
+}
+
+/**
+ * print_array - a function that print part of an array
+ * @array: the array
+ * @start: the index to start printing
+ * @stop: the index to stop
+ */
+void print_array(int *array, int start, int stop)
+{
+	int i;
+
+	for (i = start; i < stop + 1; i++)
+	{
+		printf("%d", array[i]);
+		if (i == stop)
+			printf("\n");
+		else
+			printf(", ");
 	}
 }
